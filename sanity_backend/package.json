@@ -1,0 +1,13 @@
+{
+  "name": "sanity-studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sanity dev --port 3333 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@sanity/cli": "^3.15.3",
+    "sanity": "^3.15.3",
+    "styled-components": "^6.1.16"
+  }
+}

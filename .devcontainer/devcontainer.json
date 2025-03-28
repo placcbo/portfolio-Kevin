@@ -20,7 +20,13 @@
     "3000": {
       "label": "Application",
       "onAutoForward": "openPreview"
+    },
+    "3333": {
+      "label": "Sanity Studio",
+      "onAutoForward": "openPreview",
+      "requireLocalPort": true,
+      "protocol": "http" // Changed from "https" to "http"
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000, 3333]
 }
