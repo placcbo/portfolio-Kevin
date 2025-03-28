@@ -68,4 +68,4 @@ const Header = () => (
   </div>
 );
 
-export default AppWrap(Header, 'home');
+export default Header;
