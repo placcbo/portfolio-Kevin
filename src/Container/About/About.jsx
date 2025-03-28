@@ -17,8 +17,8 @@ const abouts = [
 
 
   return (
-    <>
-    <h2 className="head-text"> I Know that <span> Good Development</span> <br />  means <span>Good Business</span>  </h2>
+    <div id = "about">
+    <h2 className="head-text" style={{paddingTop: 80}}> I Know that <span> Good Development</span> <br />  means <span>Good Business</span>  </h2>
     <div className="app__profiles">
       {abouts.map((about,index) => (
         <motion.div
@@ -38,7 +38,7 @@ const abouts = [
 
     </div>
     
-    </>
+    </div>
   )
 }
 

@@ -9,10 +9,10 @@ const App = () => {
   return (
     <div className="app">
 
-   { /*  
+  
      <Navbar/>
       <Header/>
-      */}
+      
 
 
       <About/>
