@@ -59,7 +59,7 @@ const Header = () => (
       whileInView={scaleVariants.whileInView}
       className="app__header-circles"
     >
-      {[Images.flutter, Images.redux, Images.sass].map((circle, index) => (
+      {[Images.flutter, Images.redux, Images.sass,Images.about02].map((circle, index) => (
         <div className="circle-cmp app__flex" key={`circle-${index}`}>
           <img src={circle} alt="profile_bg" />
         </div>
@@ -68,4 +68,4 @@ const Header = () => (
   </div>
 );
 
-export default Header;
+export default Header
