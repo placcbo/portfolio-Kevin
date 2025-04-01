@@ -3,15 +3,14 @@ import "./About.scss"
 import { motion } from 'framer-motion'
 import { Images } from '../../Constants'
 
+import { AppWrap } from '../../wrapper'
+
 const About = () => {
 const abouts = [
   {title: "Frontend Development", description: "I am a good web developer",imgUrl : Images.about01},
   {title: "Web Design", description: "I am a good web developer",imgUrl : Images.about02},
   {title: "UI/UX", description: "I am a good web developer",imgUrl : Images.about03},
-  {title: "Web animations", description: "I am a good golang",imgUrl : Images.about04},
-  {title: "Web animations", description: "I am a good golang",imgUrl : Images.about04},
-  {title: "Web animations", description: "I am a good golang",imgUrl : Images.about04},
-  {title: "Web animations", description: "I am a good golang",imgUrl : Images.about04},
+ 
  
 ]
 
@@ -42,4 +41,4 @@ const abouts = [
   )
 }
 
-export default About
+export default AppWrap(About,"about")

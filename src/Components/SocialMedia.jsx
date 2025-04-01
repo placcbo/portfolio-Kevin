@@ -5,7 +5,7 @@ import { FaFacebookF } from 'react-icons/fa';
 const SocialMedia = () => (
   <div className="app__social">
     <div>
-        <a href='www.youtube.com' target='_blank'>
+        <a href='www.youtube.com' target=''>
             <BsTwitter/>
         </a>
 
