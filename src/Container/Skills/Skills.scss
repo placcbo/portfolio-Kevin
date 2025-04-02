@@ -1,0 +1,189 @@
+// Skills.scss
+
+.app__skills {
+  padding: 4rem 2rem;
+  width: 100%;
+  min-height: 100vh;
+ 
+  position: relative;
+  overflow: hidden;
+
+  .head-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 4rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  &-list {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  }
+
+  &-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .app__flex {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      @media (min-width: 768px) {
+        width: 90px;
+        height: 90px;
+      }
+
+      img {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+      }
+    }
+
+    .p-text {
+      font-weight: 600;
+      color: #4a5568;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &-exp {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+
+    &-work {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    
+ 
+
+    
+
+      h4 {
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+
+        .bold-text {
+          color: #667eea;
+        }
+      }
+
+      p {
+        color: #718096;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Tooltip styling
+.skills-tooltip {
+  max-width: 300px !important;
+  background-color: rgb(91, 84, 84) !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2) !important;
+  padding: 1rem !important;
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  z-index: 1000 !important;
+
+  &::after {
+    border-top-color: white !important;
+  }
+}
+
+// Animation for the skills items
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+// Add floating animation to skills on hover
+.app__skills-item:hover .app__flex {
+  animation: float 2s ease-in-out infinite;
+}

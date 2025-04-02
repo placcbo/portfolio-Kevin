@@ -8,14 +8,17 @@ import './App.scss'
 const App = () => {
   return (
     <div className="app" id = "home">
+
       
 
-  
-     <Navbar/>
+
+           <Navbar/>
      <Header/>
      <About/>
+           <Work/>
+    
   
-      <Work/>
+
       <Footer/>
       <Skills/>
       <Testimonial/>
