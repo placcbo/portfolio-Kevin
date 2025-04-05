@@ -1,220 +1,161 @@
-#home {
-  position: relative;
-
-
-  .app__wrapper {
-    padding: 0;
-
-    .copyright {
-      display: none;
-    }
-  }
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Modern font */
 }
 
+/* Header Container */
 .app__header {
   flex: 1;
   width: 100%;
-  height: 100%;
+  height: auto; /* Allow height to adjust dynamically */
   display: flex;
   flex-direction: row;
   padding: 6rem 2rem 2rem;
   position: relative;
   z-index: 1;
 
-  @media screen and (min-width: 2000px) {
-    padding-top: 8rem;
-  }
-
   @media screen and (max-width: 1200px) {
-    flex-direction: column;
+    flex-direction: column; /* Stack content vertically */
+    padding: 4rem 1rem 2rem;
   }
 
   @media screen and (max-width: 450px) {
-    padding: 4rem 1rem 2rem;
- 
+    padding: 3rem 1rem 1rem; /* Reduce padding for tiny devices */
   }
 }
 
+/* Header Info Section */
 .app__header-info {
   flex: 0.65;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 100%;
   margin: 0 2rem;
-  z-index: 2;
 
   @media screen and (max-width: 1200px) {
     width: 100%;
-    margin-right: 0;
+    margin: 0;
     align-items: center;
     text-align: center;
   }
+
+  @media screen and (max-width: 450px) {
+    margin: 0;
+    padding: 0;
+  }
 }
 
+/* Badge Section */
 .app__header-badge {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
   flex-direction: column;
- 
-  height: 350px;
+  justify-content: center;
+  align-items: flex-start;
 
-
-  .badge-cmp,
-  .tag-cmp {
-  
-   
+  .badge-cmp {
     padding: 1.5rem 2rem;
-    
     border-radius: 20px;
-    flex-direction: row;
-    width: auto;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
+    @media screen and (max-width: 450px) {
+      padding: 1rem; /* Reduce padding for tiny devices */
     }
-  }
 
-  .badge-cmp {
     span {
       font-size: 2.5rem;
       margin-right: 1rem;
-      animation: wave 2s infinite;
 
-      @media screen and (min-width: 2000px) {
-        font-size: 4rem;
+      @media screen and (max-width: 450px) {
+        font-size: 2rem; /* Smaller emoji size */
       }
     }
 
     div {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-  
-
-   
+      align-items: flex-start;
 
       .p-text {
         font-size: 1.1rem;
-        
         color: var(--secondary-color);
         margin-bottom: 0.5rem;
+
+        @media screen and (max-width: 450px) {
+          font-size: 0.9rem; /* Smaller text size */
+        }
       }
 
       .head-text {
-  
         font-size: 3rem;
         font-weight: 800;
-        color: var(--black-olor);
-        line-height: 1.1;
         background: linear-gradient(90deg, #4361ee, #4cc9f0);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
 
-        @media screen and (min-width: 2000px) {
-          font-size: 4rem;
+        @media screen and (max-width: 450px) {
+          font-size: 2rem; /* Smaller heading size */
         }
       }
     }
   }
 
   .tag-cmp {
-    flex-direction: column;
     margin-top: 2rem;
-    align-items: flex-end;
-    
 
     p {
-      width: 100%;
-      text-align: right;
       font-size: 1.2rem;
-      color: var(--gray-color);
-      position: relative;
-      padding-right: 1rem;
 
-    
-
-      &:not(:last-child) {
-        margin-bottom: 0.5rem;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        color: var(--secondary-color);
-      }
-    }
-  }
-
-  @media screen and (max-width: 1200px) {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-
-    .badge-cmp,
-    .tag-cmp {
-      align-items: center;
-    }
-
-    .tag-cmp p {
-      text-align: center;
-      padding-right: 0;
-      padding-left: 1rem;
-
-      &::after {
-        left: 0;
-        right: auto;
+      @media screen and (max-width: 450px) {
+        font-size: 0.9rem; /* Smaller tag text size */
       }
     }
   }
 }
 
+/* Profile Image Section */
 .app__header-img {
   flex: 1;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 
+  img {
+    max-width: 300px;
+    border-radius: 10px;
+    border: 2px solid red;
 
-
-
-
- 
-
-  @media screen and (max-width: 700px) {
-    margin: 3rem 0;
-    img {
-      max-width: 250px;
-      border: 2px solid red;
-      display: none;
+    @media screen and (max-width: 700px) {
+      display: none; /* Hide profile image on small devices */
     }
   }
 }
 
+/* Circles Section */
 .app__header-circles {
   flex: 0.75;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 100%;
-  margin-left: 1rem;
   gap: 1.5rem;
 
+  @media screen and (max-width: 1200px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
 
- 
+  @media screen and (max-width: 450px) {
+    gap: 1rem; /* Reduce spacing between circles */
+  }
 
   div {
     width: 80px;
@@ -223,72 +164,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--white-color);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(1px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
 
-
-
-
-    &:hover {
-      transform: scale(1.1) translateY(-5px);
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    @media screen and (max-width: 450px) {
+      width: 60px;
+      height: 60px; /* Smaller circles for tiny devices */
     }
 
     img {
       width: 60%;
       height: 60%;
-    
-    }
-  
-  }
 
-  div:nth-child(1) {
-    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
-  }
-
-  div:nth-child(2) {
-    background: linear-gradient(135deg, rgba(247, 37, 133, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
-  }
-
-  div:nth-child(3) {
-    background: linear-gradient(135deg, rgba(248, 150, 30, 0.1) 0%, rgba(243, 114, 44, 0.1) 100%);
-  }
-
-  @media screen and (min-width: 2000px) {
-    div:nth-child(2) {
-      width: 200px;
-      height: 200px;
-    }
-
-    div:nth-child(3) {
-      width: 120px;
-      height: 120px;
-    }
-  }
-
-  @media screen and (max-width: 1200px) {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 0;
-    margin-top: 2rem;
-
-   
-
-    div {
-      margin: 0.5rem;
+      @media screen and (max-width: 450px) {
+        width: 50%;
+        height: 50%; /* Smaller icons inside circles */
+      }
     }
   }
 }
 
-/* Kept only the wave animation for the hand emoji */
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(15deg); }
-  50% { transform: rotate(-10deg); }
-  75% { transform: rotate(5deg); }
+
+/* Role Text Styling */
+.role-text-container {
+  display: flex;
+  align-items: center;
+
+  .role-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-right: 0.2rem;
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.2rem; /* Smaller font size for tiny devices */
+    }
+  }
+
+  .cursor {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    animation: blink 0.8s infinite;
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.2rem; /* Smaller cursor size for tiny devices */
+    }
+  }
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

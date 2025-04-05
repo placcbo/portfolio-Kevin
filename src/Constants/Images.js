@@ -43,8 +43,6 @@ import kamau from '../assets/kamau.png'
 export default {
   email,
   kamau,
-
-  kevin,
   mobile,
   api,
   cpp,
