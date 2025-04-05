@@ -31,6 +31,7 @@
 
   @media screen and (max-width: 450px) {
     padding: 4rem 1rem 2rem;
+ 
   }
 }
 
@@ -58,11 +59,16 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
+ 
+  height: 350px;
+
 
   .badge-cmp,
   .tag-cmp {
+  
+   
     padding: 1.5rem 2rem;
-    background: var(--white-color);
+    
     border-radius: 20px;
     flex-direction: row;
     width: auto;
@@ -92,17 +98,22 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+  
+
+   
 
       .p-text {
         font-size: 1.1rem;
+        
         color: var(--secondary-color);
         margin-bottom: 0.5rem;
       }
 
       .head-text {
+  
         font-size: 3rem;
         font-weight: 800;
-        color: var(--black-color);
+        color: var(--black-olor);
         line-height: 1.1;
         background: linear-gradient(90deg, #4361ee, #4cc9f0);
         -webkit-background-clip: text;
@@ -120,6 +131,7 @@
     flex-direction: column;
     margin-top: 2rem;
     align-items: flex-end;
+    
 
     p {
       width: 100%;
@@ -129,12 +141,14 @@
       position: relative;
       padding-right: 1rem;
 
+    
+
       &:not(:last-child) {
         margin-bottom: 0.5rem;
       }
 
       &::after {
-        content: '•';
+        content: '';
         position: absolute;
         right: 0;
         color: var(--secondary-color);
@@ -145,6 +159,7 @@
   @media screen and (max-width: 1200px) {
     justify-content: center;
     align-items: center;
+    display: flex;
 
     .badge-cmp,
     .tag-cmp {
@@ -174,12 +189,16 @@
 
 
 
+
+
  
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 700px) {
     margin: 3rem 0;
     img {
       max-width: 250px;
+      border: 2px solid red;
+      display: none;
     }
   }
 }
@@ -194,6 +213,9 @@
   margin-left: 1rem;
   gap: 1.5rem;
 
+
+ 
+
   div {
     width: 80px;
     height: 80px;
@@ -204,8 +226,11 @@
     background: var(--white-color);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(1px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+
+
+
 
     &:hover {
       transform: scale(1.1) translateY(-5px);
@@ -215,7 +240,9 @@
     img {
       width: 60%;
       height: 60%;
+    
     }
+  
   }
 
   div:nth-child(1) {
@@ -223,8 +250,6 @@
   }
 
   div:nth-child(2) {
-    width: 120px;
-    height: 120px;
     background: linear-gradient(135deg, rgba(247, 37, 133, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
   }
 
@@ -251,6 +276,8 @@
     justify-content: center;
     margin-left: 0;
     margin-top: 2rem;
+
+   
 
     div {
       margin: 0.5rem;
