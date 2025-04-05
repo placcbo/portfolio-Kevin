@@ -4,78 +4,26 @@ import { AppWrap } from '../../wrapper';
 import { Images } from '../../Constants';
 import './Header.scss';
 
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: 'easeInOut',
-    },
-  },
-};
-
-const typingSpeed = 100; // Time between typing each character
-const deletingSpeed = 50; // Time between deleting each character
-const pauseTime = 1500; // Time to pause before switching to next role
-
 const Header = () => {
-  const [devRole, setDevRole] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
   const roles = [
-    "I'm a full-stack developer",
-    "I'm a Go developer",
-    "I'm a React developer",
+    "React Developer",
+    "Go Developer",
+    "Full-Stack Developer",
   ];
 
   useEffect(() => {
-    let typingTimeout;
-    let deletingTimeout;
-    let pauseTimeout;
-    let charIndex = 0;
-    let deleting = false;
-    
-    const typeAndDeleteText = () => {
-      const currentRole = roles[currentRoleIndex];
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000); // Switch roles every 3 seconds
 
-      if (!deleting) {
-        if (charIndex < currentRole.length) {
-          setDevRole((prev) => prev + currentRole[charIndex]);
-          charIndex++;
-          typingTimeout = setTimeout(typeAndDeleteText, typingSpeed);
-        } else {
-          deleting = true;
-          pauseTimeout = setTimeout(() => {
-            setDevRole("");
-            charIndex = 0;
-            setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-            deleting = false;
-          }, pauseTime);
-        }
-      } else {
-        if (charIndex > 0) {
-          setDevRole((prev) => prev.slice(0, charIndex - 1));
-          charIndex--;
-          deletingTimeout = setTimeout(typeAndDeleteText, deletingSpeed);
-        } else {
-          deleting = false;
-          typeAndDeleteText(); // Continue typing again after deleting
-        }
-      }
-    };
-
-    typeAndDeleteText(); // Initial call to start typing effect
-
-    // Cleanup function
-    return () => {
-      clearTimeout(typingTimeout);
-      clearTimeout(deletingTimeout);
-      clearTimeout(pauseTimeout);
-    };
-  }, [currentRoleIndex]);
+    return () => clearInterval(interval); // Cleanup interval
+  }, []);
 
   return (
     <div className="app__header" id="home">
+      {/* Header Info Section */}
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.7 }}
@@ -89,18 +37,48 @@ const Header = () => {
 
           {/* Full version for larger screens */}
           <div className="badge-cmp app__flex">
-            <span>👋</span>
+            {/* Animated Wave Hand */}
+            <div className="wave-hand">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#4361ee"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
+                <path d="M12 14.5c1.4 0 2.5-1.1 2.5-2.5S13.4 9.5 12 9.5s-2.5 1.1-2.5 2.5S10.6 14.5 12 14.5z" />
+                <path d="M12 18c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
+                <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                <path d="M12 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+              </svg>
+            </div>
+
             <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Hi, I am</p>
+              <p className="p-text">Hello, I am</p>
               <h1 className="head-text">Kevin Ndirangu</h1>
-              <p className={`p-text role-text ${roles[currentRoleIndex].toLowerCase().split(' ').join('-')}`}>
-                {devRole}
-              </p>
+              <div className="role-text-container">
+                <motion.p
+                  key={currentRoleIndex} // Key ensures re-render on role change
+                  initial={{ opacity: 0, y: 20 }} // Start off-screen
+                  animate={{ opacity: 1, y: 0 }} // Slide up and fade in
+                  exit={{ opacity: 0, y: -20 }} // Slide up and fade out
+                  transition={{ duration: 0.5 }}
+                  className="role-text"
+                >
+                  {roles[currentRoleIndex]}
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>
       </motion.div>
 
+      {/* Profile Image Section */}
       <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
@@ -109,14 +87,21 @@ const Header = () => {
         <img src={Images.profile} alt="profile_bg" className="profile-image" />
       </motion.div>
 
+      {/* Circles Section */}
       <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
+        variants={{
+          whileInView: {
+            scale: [0, 1],
+            opacity: [0, 1],
+            transition: { duration: 1, ease: 'easeInOut' },
+          },
+        }}
+        whileInView="whileInView"
         className="app__header-circles"
       >
-        {[Images.golang, Images.sass, Images.javascript,Images.react,Images.html,Images.git].map((circle, index) => (
-          <motion.div 
-            className="circle-cmp app__flex" 
+        {[Images.golang, Images.sass, Images.javascript, Images.react, Images.html, Images.git].map((circle, index) => (
+          <motion.div
+            className="circle-cmp app__flex"
             key={`circle-${index}`}
             whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
           >

@@ -55,26 +55,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+ 
 
   .badge-cmp {
     padding: 1.5rem 2rem;
     border-radius: 20px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 
     @media screen and (max-width: 450px) {
       padding: 1rem; /* Reduce padding for tiny devices */
     }
 
-    span {
-      font-size: 2.5rem;
-      margin-right: 1rem;
-
-      @media screen and (max-width: 450px) {
-        font-size: 2rem; /* Smaller emoji size */
-      }
-    }
+    
 
     div {
       display: flex;
@@ -82,9 +76,11 @@ body {
       align-items: flex-start;
 
       .p-text {
-        font-size: 1.1rem;
-        color: var(--secondary-color);
-        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        color: #000000;
+        
+        font-weight: 600;
+    
 
         @media screen and (max-width: 450px) {
           font-size: 0.9rem; /* Smaller text size */
@@ -92,7 +88,7 @@ body {
       }
 
       .head-text {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 800;
         background: linear-gradient(90deg, #4361ee, #4cc9f0);
         -webkit-background-clip: text;
@@ -100,7 +96,7 @@ body {
         color: transparent;
 
         @media screen and (max-width: 450px) {
-          font-size: 2rem; /* Smaller heading size */
+          font-size: 1.75rem; /* Smaller heading size */
         }
       }
     }
@@ -119,6 +115,25 @@ body {
   }
 }
 
+/* Role Text Styling */
+.role-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem; /* Space between roles */
+
+  .role-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    white-space: nowrap; /* Prevent wrapping */
+
+    @media screen and (max-width: 450px) {
+      font-size: 1.2rem; /* Smaller font size for tiny devices */
+    }
+  }
+}
+
 /* Profile Image Section */
 .app__header-img {
   flex: 1;
@@ -127,9 +142,8 @@ body {
   align-items: center;
 
   img {
-    max-width: 300px;
+    max-width: 350px;
     border-radius: 10px;
-    border: 2px solid red;
 
     @media screen and (max-width: 700px) {
       display: none; /* Hide profile image on small devices */
@@ -183,41 +197,24 @@ body {
   }
 }
 
-
-/* Role Text Styling */
-.role-text-container {
+/* Wave Hand Animation */
+.wave-hand {
   display: flex;
+  justify-content: center;
   align-items: center;
 
-  .role-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    margin-right: 0.2rem;
+  svg {
+    width: 40px;
+    height: 40px;
+    animation: wave 1.5s infinite ease-in-out;
+  }
 
-    @media screen and (max-width: 450px) {
-      font-size: 1.2rem; /* Smaller font size for tiny devices */
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
     }
-  }
-
-  .cursor {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    animation: blink 0.8s infinite;
-
-    @media screen and (max-width: 450px) {
-      font-size: 1.2rem; /* Smaller cursor size for tiny devices */
+    50% {
+      transform: rotate(20deg);
     }
-  }
-}
-
-/* Blinking Cursor Animation */
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
   }
 }
