@@ -10,14 +10,15 @@ const Work = () => {
   const [animateCard, setAnimateCard] = React.useState({ y: 0, opacity: 1 });
 
   const works = [
-    { 
-      title: 'ToraScore', 
-      category: 'UI/UX', 
-      imgUrl: Images.about01, 
-      link: 'https://example.com', 
-      description: 'A modern UI/UX design project for an e-commerce platform.',
-      tags: ['Design', 'UI/UX', 'Responsive']
+    {
+      title: 'Candidly',
+      category: 'Web App',
+      imgUrl: Images.candidly,
+      link: 'https://candidly-eta.vercel.app/',
+      description: 'Candidly is a sleek, modern resume builder that helps users create professional resumes effortlessly. Featuring beautiful templates, intuitive editing, and instant downloads.',
+      tags: ['Resume Builder', 'UI/UX', 'Responsive', 'Web App']
     },
+    
     { 
       title: 'Web Application', 
       category: 'Web App', 
