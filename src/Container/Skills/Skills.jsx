@@ -23,7 +23,7 @@ const Skills = () => {
         name: "React.js", 
         category: "Frontend Framework", 
         level: "Intermediate", 
-        backgroundColor: "#61dafb", 
+        backgroundColor: "black", 
         image: Images.react, 
         experience: "2 years", 
         company: "Andela",
@@ -35,12 +35,36 @@ const Skills = () => {
         category: "Backend Language", 
         level: "Beginner", 
         backgroundColor: "#00acd7", 
-        image: Images.Go, 
+        image: Images.go, 
         experience: "6 months", 
         company: "Self-Taught",
         role: "Backend Developer",
         description: "Learning Go for backend development, focusing on building APIs, working with concurrency, and database integration."
-    }
+    },
+    {
+      name: "Git",
+      category: "Version Control",
+      level: "Intermediate",
+      backgroundColor: "black",
+      image: Images.git,
+      experience: "2 years",
+      company: "Self-Taught",
+      role: "Version Control Specialist",
+      description: "Proficient in using Git for source code management, branching, merging, and collaborating with teams using GitHub, GitLab, and Bitbucket."
+    },
+    {
+      name: "CI/CD",
+      category: "DevOps",
+      level: "Beginner",
+      backgroundColor: "#fff", // Green, symbolizing automation and growth
+      image: Images.CICD, // Add an image URL for CI/CD
+      experience: "3 months",
+      company: "Self-Taught",
+      role: "DevOps Engineer (Learning)",
+      description: "Learning Continuous Integration and Continuous Deployment (CI/CD) processes, focusing on automating the software delivery pipeline, improving code quality, and reducing manual errors."
+  }
+  
+    
     // Add the rest of your skills...
 ];
 
