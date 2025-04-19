@@ -32,7 +32,7 @@ const Header = () => {
         <div className="app__header-badge">
           {/* Mobile-only simplified version */}
           <div className="mobile-simple app__flex">
-            <h1 className="mobile-headline">LET'S BUILD SOMETHING BEAUTIFUL</h1>
+            <h1 className="mobile-headline">I Build Beautiful, Functional Web Apps.</h1>
           </div>
 
           {/* Full version for larger screens */}
@@ -84,7 +84,7 @@ const Header = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__header-img"
       >
-        <img src={Images.profile} alt="profile_bg" className="profile-image" />
+        <img src={Images.profil} alt="profile_bg" className="profile-image" />
       </motion.div>
 
       {/* Circles Section */}
