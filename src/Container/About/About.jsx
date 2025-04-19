@@ -7,10 +7,24 @@ import { AppWrap } from '../../wrapper'
 
 const About = () => {
 const abouts = [
-  {title: "Frontend Development", description: "I am a good web developer",imgUrl : Images.about01},
-  {title: "Web Design", description: "I am a good web developer",imgUrl : Images.about02},
-  {title: "UI/UX", description: "I am a good web developer",imgUrl : Images.about03},
- 
+  {
+    title: "Frontend Development",
+    description: "I specialize in crafting responsive, user-friendly web interfaces that combine aesthetics with performance. With a strong grasp of React and design principles, I bring ideas to life through clean, efficient code.",
+    imgUrl: Images.front
+  },
+  
+  {
+    title: "Backend Development",
+    description: "I build robust and scalable server-side applications with a strong focus on performance and reliability. Specializing in Go, I design efficient APIs, manage databases, and ensure seamless integration between systems.",
+    imgUrl: Images.backend
+  },
+  
+  {
+    title: "MongoDB",
+    description: "Experienced in using MongoDB to build fast, flexible, and scalable NoSQL databases. I design efficient schemas, manage data seamlessly, and integrate with modern backend architectures.",
+    imgUrl: Images.mongodb
+  }
+   
  
 ]
 

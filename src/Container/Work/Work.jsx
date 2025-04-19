@@ -63,7 +63,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text" style={{ paddingTop: 80 }}>
+      <h2 className="head-text" style={{ paddingTop: 60 }}>
         My creative <span>portfolio</span> section
       </h2>
 

@@ -20,6 +20,7 @@ import vue from '../assets/vue.png';
 import kevin from '../assets/kevin.png'
 import golang from '../assets/Go-Logo_Blue.png'
 import candidly from '../assets/Candidly-logo.png'
+import backend from '../assets/backend.png'
 
 import about01 from '../assets/about01.png';
 import about02 from '../assets/about02.png';
@@ -40,10 +41,17 @@ import spotify from '../assets/spotify.png';
 import kamau from '../assets/kamau.png'
 import go from '../assets/golang.png'
 import CICD from '../assets/pngwing.com.png'
+import frontend from '../assets/frontend.png'
+import mongodb from '../assets/mongodb.png'
+import front from '../assets/front.png'
 
 
 export default {
+  front,
+  mongodb,
+  frontend,
   CICD,
+  backend,
   go,
   candidly,
   email,

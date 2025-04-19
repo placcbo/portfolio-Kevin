@@ -86,7 +86,7 @@ const Footer = () => {
 
   return (
     <div className='app__footer'>
-      <h2 className='head-text'>Take a coffee & chat with me</h2>
+      <h2 className='head-text' style={{paddingTop:0}}>Take a coffee & chat with me</h2>
       <div className='app__footer-cards'>
         <div className='app__footer-card'>
           <img src={Images.email} alt="email" />

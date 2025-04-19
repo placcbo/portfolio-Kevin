@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
        <a href='home'>
-       <h1 className="cool-logo">
+       <h1 className="cool-logo" >
   <span className="logo-k">K.</span>
   <span className="logo-ndirangu">Ndirangu</span>
 </h1>

@@ -11,12 +11,13 @@
 }
 
 .app__profile-item{
-    width: 190px;
+    width: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
     margin: 2rem;
+
     
    
 
@@ -25,6 +26,8 @@
         height: 170px;
         border-radius: 15px;
         object-fit: cover;
+ 
+
        
 
     }
