@@ -39,7 +39,7 @@ const Skills = () => {
         experience: "6 months", 
         company: "Self-Taught",
         role: "Backend Developer",
-        description: "Learning Go for backend development, focusing on building APIs, working with concurrency, and database integration."
+        description: "Specializing in Go, I design efficient APIs, manage databases, and ensure seamless integration between systems."
     },
     {
       name: "Git",
