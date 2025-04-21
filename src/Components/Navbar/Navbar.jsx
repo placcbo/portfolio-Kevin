@@ -13,7 +13,7 @@ const Navbar = () => {
        <a href='home'>
        <h1 className="cool-logo" >
   <span className="logo-k">K.</span>
-  <span className="logo-ndirangu">kdkdkd</span>
+  <span className="logo-ndirangu">Ndirangu</span>
 </h1>
 
 
