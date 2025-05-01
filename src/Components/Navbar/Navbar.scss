@@ -1,226 +1,248 @@
-.app__navbar {
-    width: 100%;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.25);
-    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    position: fixed;
-    z-index: 2;
-  }
-  
-  .app__navbar-logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+// QuantumNavbar.scss
 
-    a{
-      text-decoration: none;
-    }
-  
-  }
-  
-  .app__navbar-links {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    list-style: none;
-  
-    li {
-      margin: 0 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      flex-direction: column;
-  
-      div {
-        width: 5px;
-        height: 5px;
-        background: transparent;
-        border-radius: 50%;
-  
-        margin-bottom: 5px;
-      }
-  
-      a {
-        color: var(--gray-color);
-        text-decoration: none;
-        flex-direction: column;
-  
-        text-transform: uppercase;
-        font-weight: 500;
-  
-        transition: all 0.3s ease-in-out;
-  
-        &:hover {
-          color: var(--secondary-color);
-        }
-      }
-  
-      &:hover {
-        div {
-          background: var(--secondary-color);
-        }
-      }
-    }
-  
-    @media screen and (max-width: 900px) {
-      display: none;
-    }
-  }
-  
-  .app__navbar-menu {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    position: relative;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background:transparent;
+$primary-color: #64c4ff;
+$secondary-color: #ff64c4;
+$dark-bg: #0f0f1a;
+$light-bg: #f0f0ff;
 
-  
-    svg {
-      width: 70%;
-      height: 70%;
-      background: var(--white-color);
-    }
-  
-    div {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 5;
-  
-      padding: 1rem;
-  
-      width: 80%;
-      height: 100vh;
-      
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      flex-direction: column;
-      
-   
-      background-color: var(--white-color);
-      background-size: cover;
-      background-repeat: repeat;
-  
-      /* top box shadow */
-      box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
-  
-      svg {
-        width: 35px;
-        height: 35px;
-        color: var(--secondary-color);
-        margin: 0.5rem 1rem;
-      }
-  
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-  
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-direction: column;
-  
-        li {
-          margin: 1rem;
-  
-          a {
-            color: var(--gray-color);
-            text-decoration: none;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 500;
-  
-            transition: all 0.3s ease-in-out;
-  
-            &:hover {
-              color: var(--secondary-color);
-            }
-          }
-        }
-      }
-  
-      @media screen and (min-width: 900px) {
-        display: none;
-      }
-    }
-  
-    @media screen and (min-width: 900px) {
-      display: none;
-    }
-  }
-
-  /* General Reset */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif; /* Use a modern font */
-}
-
-/* Cool Logo Styling */
-.cool-logo {
+.quantum-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   display: flex;
   align-items: center;
-  font-size: 1.6rem; /* Base size for the logo */
-  font-weight: 700; /* Bold font */
-  letter-spacing: 1.5px; /* Add spacing between letters */
-  text-transform: uppercase; /* Uppercase for a sleek look */
-  position: relative;
-
-  /* Hover Animation */
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.07); /* Slightly enlarge on hover */
-  }
+  justify-content: center;
+  z-index: 1000;
+  background: transparent;
+  pointer-events: none;
 }
 
-.logo-k {
-  color: #4AAAF0; /* Light blue */
+.quantum-core-container {
   position: relative;
-
+  z-index: 10;
+  pointer-events: auto;
+  margin: 0 auto;
 }
 
-.logo-ndirangu {
-  color: #000000; /* Black */
-  margin-left: 0.2rem; /* Add spacing between K. and Ndirangu */
-
-  /* Subtle Underline Animation */
+.quantum-core {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4aafff, #0f0f1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: #4AAAF0; /* Same blue as K. */
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover::after {
-    width: 100%; /* Expand underline on hover */
-  }
-}
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(100, 190, 255, 0.3);
+  transition: all 0.3s ease;
   
+  .core-inner {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0f0f1a 0%, #1a1a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 2px solid rgba(100, 190, 255, 0.3);
+    
+    .core-letter {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $primary-color;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 0 5px rgba(100, 190, 255, 0.5);
+    }
+    
+    .core-subletter {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      font-size: 0.6rem;
+      color: $secondary-color;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    
+    .core-glow {
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(100, 190, 255, 0.2) 0%, transparent 70%);
+      animation: core-glow 4s ease-in-out infinite;
+      z-index: 1;
+    }
+    
+    .core-pulse {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      border: 1px solid rgba(100, 190, 255, 0.3);
+      animation: core-pulse 2s ease-in-out infinite;
+      z-index: 1;
+    }
+  }
+}
+
+.quantum-tunnels {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  pointer-events: auto;
+  
+  &.left-aligned {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    align-items: flex-start;
+  }
+  
+  &.right-aligned {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    align-items: flex-end;
+  }
+  
+  &.center-aligned {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.quantum-node {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background: rgba(15, 15, 26, 0.8);
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(100, 190, 255, 0.3);
+  box-shadow: 0 0 10px rgba(100, 190, 255, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 100, 198, 0.1);
+    border-color: $secondary-color;
+    box-shadow: 0 0 20px rgba(255, 100, 198, 0.4);
+  }
+  
+  &.active {
+    background: rgba(100, 190, 255, 0.2);
+    border-color: $primary-color;
+    box-shadow: 0 0 25px rgba(100, 190, 255, 0.6);
+    
+    .node-glow {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+  
+  .node-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    
+    .node-letter {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $primary-color;
+      margin-right: 8px;
+      text-shadow: 0 0 3px rgba(100, 190, 255, 0.5);
+    }
+    
+    .node-name {
+      font-size: 0.9rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    
+    .node-glow {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(100, 190, 255, 0.3) 0%, transparent 70%);
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+  }
+}
+
+.quantum-state-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(15, 15, 26, 0.7);
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(100, 190, 255, 0.2);
+  
+  .state-value {
+    font-weight: 600;
+    color: $primary-color;
+    margin-left: 5px;
+  }
+}
+
+@keyframes core-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes core-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .quantum-tunnels {
+    &.center-aligned {
+      bottom: 80px;
+    }
+  }
+}
