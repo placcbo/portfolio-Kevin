@@ -1,0 +1,202 @@
+.app__about-section {
+  padding: var(--spacing-5) var(--spacing-3);
+  position: relative;
+  z-index: 1;
+  
+  /* Developer Bio Section */
+  .developer-bio {
+    font-family: 'DM Sans', sans-serif;
+    max-width: 700px;
+    margin:3rem auto;
+    text-align: center;
+    color: var(--white-color); // Improved contrast
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+   
+    
+   
+    
+    .bio-highlight {
+   
+
+      margin-top: 1.2rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          to right, 
+          transparent, 
+          var(--secondary-color), 
+          transparent
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  /* Header Section */
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--spacing-5);
+    z-index: 2;
+    position: relative;
+    
+    h2 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      
+      /* Subtle background glow for terminal text */
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120%;
+        height: 2rem;
+        background: radial-gradient(
+          circle, 
+          rgba(var(--secondary-color), 0.08), 
+          transparent 70%
+        );
+        z-index: -1;
+        border-radius: var(--radius-full);
+      }
+      
+      span {
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+          border-radius: 2px;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  /* Profile Cards */
+  .profiles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-4);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .profile-card {
+    padding: var(--spacing-4);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    
+    .profile-image-wrapper {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--spacing-3);
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(var(--secondary-color), 0.2);
+      transition: transform 0.3s ease;
+      
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(var(--secondary-color), 0.3);
+        
+        .profile-image {
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    .profile-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-2);
+      color: var(--white-color);
+    }
+    
+    .profile-description {
+      font-size: 0.95rem;
+      color: rgba(var(--primary-color), 0.8);
+      line-height: 1.6;
+    }
+  }
+
+  /* Background Effects */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center, 
+      rgba(var(--secondary-color), 0.05), 
+      transparent 70%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-header h2 {
+      font-size: 2rem;
+      
+      span::after {
+        height: 3px;
+      }
+    }
+    
+    .developer-bio {
+      margin: var(--spacing-4) auto;
+    }
+  }
+}
