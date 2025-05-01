@@ -1,18 +1,14 @@
 .dark-footer {
   background: #030303;
   color: var(--white-color);
-  padding: var(--spacing-5) var(--spacing-3);
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  margin-top: 3rem;
   display: flex;
-
 }
 
 .footer-container {
- 
-
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -20,6 +16,7 @@
   gap: var(--spacing-4);
   position: relative;
   z-index: 2;
+
 }
 
 .footer-intro {
@@ -51,12 +48,16 @@
   padding: 2rem;
   position: relative;
   z-index: 2;
+
+ 
+
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
 }
 
 .form-label {
@@ -109,6 +110,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+
   
   &:hover {
     transform: translateX(5px);
@@ -124,7 +126,7 @@
 /* CV Download */
 .cv-download {
   text-align: center;
-  margin-top: var(--spacing-4);
+ 
 }
 
 .cv-button {

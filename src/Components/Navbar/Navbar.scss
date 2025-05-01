@@ -1,5 +1,4 @@
-// EclipseNavbar.scss
-
+// Developer Theme Colors
 $primary-color: #3d8aff;
 $secondary-color: #ff3d8a;
 $dark-bg: #0a0a14;
@@ -13,8 +12,10 @@ $light-bg: #f5f5ff;
   height: 60px;
   z-index: 1000;
   background: transparent;
+  transition: background 0.3s ease;
 }
 
+// Progress Indicator (for scroll tracking)
 .progress-indicator {
   position: fixed;
   top: 0;
@@ -28,9 +29,11 @@ $light-bg: #f5f5ff;
     height: 100%;
     background: linear-gradient(90deg, $primary-color, $secondary-color);
     width: 0%;
+    transition: width 0.3s ease;
   }
 }
 
+// Navbar Content (Glassmorphism Base)
 .navbar-content {
   position: relative;
   display: flex;
@@ -41,8 +44,10 @@ $light-bg: #f5f5ff;
   background: rgba(10, 10, 20, 0.85);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
 }
 
+// Logo Section
 .navbar-logo {
   .logo-link {
     display: flex;
@@ -53,7 +58,7 @@ $light-bg: #f5f5ff;
     
     .logo-letter {
       font-size: 1.4rem;
-      color: $primary-color;
+      color: var(--secondary-color);
       margin-right: 5px;
       position: relative;
       
@@ -75,14 +80,16 @@ $light-bg: #f5f5ff;
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-family: 'Courier New', monospace;
     }
-    
-    &:hover .logo-letter::after {
-      transform: scaleX(1);
-    }
+  }
+  
+  &:hover .logo-letter::after {
+    transform: scaleX(1);
   }
 }
 
+// Desktop Navigation
 .desktop-nav {
   display: flex;
   gap: 2rem;
@@ -109,6 +116,7 @@ $light-bg: #f5f5ff;
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease;
+    font-family: 'DM Sans', sans-serif;
     
     &:hover {
       color: $primary-color;
@@ -132,6 +140,7 @@ $light-bg: #f5f5ff;
   }
 }
 
+// Mobile Menu Button
 .mobile-menu-button {
   background: none;
   border: none;
@@ -140,6 +149,7 @@ $light-bg: #f5f5ff;
   height: 30px;
   position: relative;
   display: none;
+  z-index: 1001;
   
   .menu-icon {
     position: absolute;
@@ -150,6 +160,7 @@ $light-bg: #f5f5ff;
     height: 2px;
     background: white;
     border-radius: 1px;
+    transition: all 0.3s ease;
     
     &::before,
     &::after {
@@ -170,9 +181,22 @@ $light-bg: #f5f5ff;
     &::after {
       top: 6px;
     }
+    
+    &.active {
+      background: transparent;
+      
+      &::before {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      &::after {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
   }
 }
 
+// Mobile Navigation Panel
 .mobile-nav-panel {
   position: fixed;
   top: 0;
@@ -186,6 +210,8 @@ $light-bg: #f5f5ff;
   justify-content: center;
   backdrop-filter: blur(15px);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   
   .panel-content {
     width: 100%;
@@ -197,11 +223,17 @@ $light-bg: #f5f5ff;
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
+    z-index: 1003;
+    
+    &:focus {
+      outline: 2px solid $primary-color;
+      border-radius: 4px;
+    }
   }
   
   .mobile-nav-list {
@@ -254,7 +286,7 @@ $light-bg: #f5f5ff;
   }
 }
 
-/* Responsive Styles */
+// Responsive Display
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
@@ -268,5 +300,25 @@ $light-bg: #f5f5ff;
 @media (min-width: 769px) {
   .mobile-nav-panel {
     display: none;
+  }
+}
+
+// Scroll Handling
+.eclipse-navbar.scrolled {
+  background: rgba(10, 10, 20, 0.95);
+}
+
+// Responsive Padding
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 1.5rem;
+  }
+  
+  .navbar-logo .logo-letter {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-logo .logo-name {
+    font-size: 0.9rem;
   }
 }
