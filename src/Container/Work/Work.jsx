@@ -20,11 +20,11 @@ const Work = () => {
     },
     
     { 
-      title: 'Web Application', 
+      title: 'Byte & Dine', 
       category: 'Web App', 
-      imgUrl: Images.about02, 
-      link: 'https://example.com', 
-      description: 'A responsive web application built using React.js and Node.js.',
+      imgUrl: Images.welcome, 
+      link: 'https://bytedine.vercel.app/', 
+      description: "Byte&Dine is a modern, responsive restaurant website built with React.js and SCSS, offering a sleek user experience for browsing menus, making reservations, and exploring events.",
       tags: ['React', 'Web', 'Frontend']
     },
     { 
