@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Navbar.scss';
-import { Images } from '../../Constants';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom for navigation
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -10,27 +10,25 @@ const Navbar = () => {
   return (
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
-       <a href='home'>
-       <h1 className="cool-logo" >
-        <a id = "home">
-        <span className="logo-k">K.</span>
-        <span className="logo-ndirangu">Ndirangu</span>
-        </a>
+        <h1 className="cool-logo">
+         
+           <a href = "#home"  >
 
-</h1>
-
-
-       </a>
+           <span className="logo-k">K.</span>
+           <span className="logo-ndirangu">Ndirangu</span>
+           </a>
+       
+        </h1>
       </div>
       <ul className='app__navbar-links'>
         {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
           <li key={`link-${item}`} className='app__flex p-text'>
             <div></div>
-            <a href={`#${item}`}>{item}</a>
+            <a href={`#${item}`}>{item}</a> {/* Ensure the target element with id="item" exists */}
           </li>
         ))}
       </ul>
-      
+
       <div className='app__navbar-menu'>
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         {toggle && (
@@ -42,9 +40,9 @@ const Navbar = () => {
             <ul>
               {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                 <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                  <Link to={`#${item}`} onClick={() => setToggle(false)} className="nav-link">
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
