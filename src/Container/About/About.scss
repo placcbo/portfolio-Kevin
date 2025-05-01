@@ -7,12 +7,14 @@
   .developer-bio {
     font-family: 'DM Sans', sans-serif;
     max-width: 700px;
-    margin:0 auto;
+    margin:3rem auto;
     text-align: center;
     color: var(--white-color); // Improved contrast
     line-height: 1.7;
     position: relative;
     z-index: 2;
+   
+    
    
     
     .bio-highlight {
