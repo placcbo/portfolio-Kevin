@@ -1,9 +1,8 @@
 import React from 'react';
 import './Work.scss';
-import { AiFillEye } from 'react-icons/ai';
 import { motion } from 'framer-motion';
-import { AppWrap } from '../../wrapper';
-import { Images } from '../../Constants'; // Assuming you have an Images constant with images
+import { AiFillEye } from 'react-icons/ai';
+import { Images } from '../../Constants';
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = React.useState('All');
@@ -15,38 +14,43 @@ const Work = () => {
       category: 'Web App',
       imgUrl: Images.candidly,
       link: 'https://candidly-eta.vercel.app/',
-      description: 'Candidly is a sleek, modern resume builder that helps users create professional resumes effortlessly. Featuring beautiful templates, intuitive editing, and instant downloads.',
-      tags: ['Resume Builder', 'UI/UX', 'Responsive', 'Web App']
+      description: 'A sleek resume builder that helps users create professional resumes effortlessly.',
+      highlight: 'Modern UI • Instant Download • Template-Based'
     },
-    
-    { 
-      title: 'Web Application', 
-      category: 'Web App', 
-      imgUrl: Images.about02, 
-      link: 'https://example.com', 
-      description: 'A responsive web application built using React.js and Node.js.',
-      tags: ['React', 'Web', 'Frontend']
+    {
+      title: 'Portfolio Dashboard',
+      category: 'Web App',
+      imgUrl: Images.project1,
+      link: '#',
+      description: 'Personal developer dashboard built with React, Framer Motion, and glassmorphism design principles.',
+      highlight: 'Interactive • Animated • Responsive'
     },
-    { 
-      title: 'Mobile Application', 
-      category: 'Mobile App', 
-      imgUrl: Images.about03, 
-      link: 'https://example.com', 
-      description: 'A cross-platform mobile app developed using Flutter.',
-      tags: ['Flutter', 'Mobile', 'App']
+    {
+      title: 'AI Chatbot',
+      category: 'Web App',
+      imgUrl: Images.project2,
+      link: '#',
+      description: 'AI-powered chatbot with natural language processing and real-time interactions.',
+      highlight: 'LLM Integration • Real-Time • Scalable'
     },
-    { 
-      title: 'React Project', 
-      category: 'React JS', 
-      imgUrl: Images.about04, 
-      link: 'https://example.com', 
-      description: 'A React project showcasing modern web development practices.',
-      tags: ['React', 'JavaScript', 'Frontend']
+    {
+      title: 'Mobile Task Manager',
+      category: 'Mobile App',
+      imgUrl: Images.project3,
+      link: '#',
+      description: 'Cross-platform mobile task manager built with Flutter and Firebase backend.',
+      highlight: 'Flutter • Firebase • Cross-Platform'
     },
-    // Add more works here
+    {
+      title: 'API Rate Limiter',
+      category: 'Backend',
+      imgUrl: Images.project4,
+      link: '#',
+      description: 'Go-based rate limiter with Redis integration for scalable microservices.',
+      highlight: 'Go • Redis • High Performance'
+    }
   ];
 
-  // State for filtered work items
   const [filterWork, setFilterWork] = React.useState(works);
 
   const handleWorkFilter = (item) => {
@@ -55,70 +59,72 @@ const Work = () => {
 
     setTimeout(() => {
       setAnimateCard({ y: 0, opacity: 1 });
-
-      // Use category instead of tags for filtering
-      setFilterWork(item === "All" ? works : works.filter((work) => work.category === item));
+      setFilterWork(item === 'All' ? works : works.filter((work) => work.category === item));
     }, 500);
   };
 
   return (
-    <>
-      <h2 className="head-text" style={{ paddingTop: 60 }}>
-        My creative <span>portfolio</span> section
+    <div className="portfolio-section" id = "portfolio">
+      {/* Terminal-style heading */}
+      <h2 className="code-terminal-text">
+        <span className="code-line">Projects</span>
+        <span className="code-tag"> // What I Build</span>
+        <span className="blinking-cursor">|</span>
       </h2>
 
-      {/* Filter Buttons */}
-      <div className="app__work-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
-          <div
-            key={index}
+      {/* Category Filter */}
+      <div className="category-filter">
+        {['All', 'Web App', 'Mobile App', 'Backend'].map((item) => (
+          <button
+            key={item}
             onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            className={`filter-button ${activeFilter === item ? 'active' : ''}`}
           >
             {item}
-          </div>
+          </button>
         ))}
       </div>
 
       {/* Portfolio Grid */}
       <motion.div
         animate={animateCard}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
+        transition={{ duration: 0.5 }}
+        className="portfolio-grid"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
-            <div className="app__work-img app__flex">
+          <motion.div
+            key={index}
+            className="portfolio-card glassmorphism"
+            whileHover={{ y: -10 }}
+          >
+            {/* Project Image */}
+            <div className="portfolio-image">
               <img src={work.imgUrl} alt={work.title} />
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{ duration: 0.25, ease: "easeInOut", staggerChildren: 0.5 }}
-                className="app__work-hover app__flex"
-              >
-                <a href={work.link} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
+              <div className="overlay">
+                <a href={work.link} target="_blank" rel="noopener noreferrer" className="view-button">
+                  <AiFillEye /> Preview
                 </a>
-              </motion.div>
-            </div>
-            <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
               </div>
             </div>
-          </div>
+
+            {/* Project Details */}
+            <div className="portfolio-content">
+              <h3 className="project-title">{work.title}</h3>
+              <p className="portfolio-description">
+                {work.description}
+              </p>
+              
+              {/* Highlight Tags */}
+              <div className="project-highlight">{work.highlight}</div>
+
+              {/* Category Badge */}
+              <div className="project-category">{work.category}</div>
+            </div>
+          </motion.div>
         ))}
       </motion.div>
-    </>
+    </div>
   );
 };
 
-export default AppWrap(Work, 'projects');
+export default Work;

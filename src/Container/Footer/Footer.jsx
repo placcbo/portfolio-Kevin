@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss';
+import { motion } from 'framer-motion';
 import { Images } from '../../Constants';
-import { AppWrap } from '../../wrapper';
 
 const Footer = () => {
   const [formData, setFormData] = React.useState({
@@ -9,6 +9,7 @@ const Footer = () => {
     email: '',
     message: ''
   });
+
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [errors, setErrors] = React.useState({});
@@ -16,11 +17,11 @@ const Footer = () => {
   const { name, email, message } = formData;
 
   const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name: field, value } = e.target;
+    setFormData({ ...formData, [field]: value });
 
-    if (errors[name]) {
-      setErrors({ ...errors, [name]: '' });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
     }
   };
 
@@ -85,67 +86,152 @@ const Footer = () => {
   };
 
   return (
-    <div className='app__footer'>
-      <h2 className='head-text' style={{paddingTop:0}}>Take a coffee & chat with me</h2>
-      <div className='app__footer-cards'>
-        <div className='app__footer-card'>
-          <img src={Images.email} alt="email" />
-          <a href='mailto:placbo2@gmail.com' className='p-text'>placbo2@gmail.com</a>
-        </div>
-        <div className='app__footer-card'>
-          <img src={Images.mobile} alt="mobile" />
-          <a href='tel:+254720009566' className='p-text'>+254 720 009 566</a>
+    <footer className="dark-footer" id="contact">
+      {/* Footer Content */}
+      <div className="footer-container">
+        {/* Developer Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="footer-intro"
+        >
+          <h2 className="footer-title">// Let’s Connect</h2>
+          <p className="footer-description">
+            Whether it's a project, collaboration, or just to say hi — I'd love to hear from you.
+          </p>
+        </motion.div>
+
+        {/* Contact Form */}
+        {!isFormSubmitted ? (
+          <motion.form
+            onSubmit={handleSubmit}
+            className="contact-form"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="form-group">
+              <label htmlFor="name" className="form-label">// Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={name}
+                onChange={handleChangeInput}
+                placeholder="// Your Name"
+                className={`form-input ${errors.name ? 'input-error' : ''}`}
+                aria-invalid={errors.name ? "true" : "false"}
+              />
+              {errors.name && <span className="error-message">{errors.name}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">// Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={email}
+                onChange={handleChangeInput}
+                placeholder="// Your Email"
+                className={`form-input ${errors.email ? 'input-error' : ''}`}
+                aria-invalid={errors.email ? "true" : "false"}
+              />
+              {errors.email && <span className="error-message">{errors.email}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message" className="form-label">// Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                value={message}
+                onChange={handleChangeInput}
+                placeholder="// Your Message"
+                className={`form-input ${errors.message ? 'input-error' : ''}`}
+                aria-invalid={errors.message ? "true" : "false"}
+              />
+              {errors.message && <span className="error-message">{errors.message}</span>}
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="submit-button"
+              disabled={loading}
+            >
+              {loading ? '// Sending...' : '// Send Message'}
+            </motion.button>
+          </motion.form>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="success-state"
+          >
+            <h3>// Message Sent!</h3>
+            <p>I'll respond shortly.</p>
+          </motion.div>
+        )}
+
+        {/* CV Download */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="cv-download"
+        >
+          <a href='/public/kevinndiranguCV.pdf' download className="cv-button">
+            <span className="cv-label">// Download CV</span>
+            <span className="cv-icon">⬇</span>
+          </a>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="social-links"
+        >
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:placbo2@gmail.com"
+            className="social-link"
+          >
+            Email
+          </a>
+        </motion.div>
+
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <p className="developer-motto">// Code is Craft • Engineering is Art</p>
+          <p className="copyright">
+            &copy; {new Date().getFullYear()} Kevin Ndirangu. All rights reserved.
+          </p>
         </div>
       </div>
-
-      {!isFormSubmitted ? (
-        <form className='app__footer-form app__flex' onSubmit={handleSubmit}>
-          <div className='app__flex'>
-            <input
-              className={`p-text ${errors.name ? 'error' : ''}`}
-              type='text'
-              name='name'
-              placeholder='Your Name'
-              value={name}
-              onChange={handleChangeInput}
-            />
-            {errors.name && <span className="error-message">{errors.name}</span>}
-          </div>
-
-          <div className='app__flex'>
-            <input
-              className={`p-text ${errors.email ? 'error' : ''}`}
-              type='email'
-              name='email'
-              placeholder='Your Email'
-              value={email}
-              onChange={handleChangeInput}
-            />
-            {errors.email && <span className="error-message">{errors.email}</span>}
-          </div>
-
-          <div className='app__flex'>
-            <textarea
-              className={`p-text ${errors.message ? 'error' : ''}`}
-              placeholder='Your Message'
-              name='message'
-              value={message}
-              onChange={handleChangeInput}
-            />
-            {errors.message && <span className="error-message">{errors.message}</span>}
-          </div>
-
-          <button type='submit' className='p-text'>
-            {loading ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
-      ) : (
-        <div>
-          <h3 className='head-text'>Thank you for getting in touch!</h3>
-        </div>
-      )}
-    </div>
+    </footer>
   );
 };
 
-export default AppWrap(Footer, 'contact');
+export default Footer;

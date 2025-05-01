@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { AppWrap } from '../../wrapper';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import { Images } from '../../Constants';
 import './Header.scss';
 
 const Header = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   const roles = [
     "React Developer",
@@ -15,102 +16,157 @@ const Header = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 3000); // Switch roles every 3 seconds
+      setIsVisible(false);
+      setTimeout(() => {
+        setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+        setIsVisible(true);
+      }, 500);
+    }, 4000);
 
-    return () => clearInterval(interval); // Cleanup interval
-  }, []);
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   return (
-    <div className="app__header" id="home">
-      {/* Header Info Section */}
-      <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.7 }}
-        className="app__header-info"
-      >
-        <div className="app__header-badge">
-          {/* Mobile-only simplified version */}
-          <div className="mobile-simple app__flex">
-            <h1 className="mobile-headline">I Build Beautiful, Functional Web Apps.</h1>
-          </div>
+    <div className="eclipse-header" id="home">
+      {/* Background with glassmorphism effect */}
+      <div className="header-background">
+        <div className="gradient-orb"></div>
+        <div className="gradient-orb small"></div>
+        <div className="grid-overlay"></div>
+      </div>
 
-          {/* Full version for larger screens */}
-          <div className="badge-cmp app__flex">
-            {/* Animated Wave Hand */}
-            <div className="wave-hand">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#4361ee"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
-                <path d="M12 14.5c1.4 0 2.5-1.1 2.5-2.5S13.4 9.5 12 9.5s-2.5 1.1-2.5 2.5S10.6 14.5 12 14.5z" />
-                <path d="M12 18c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" />
-                <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-                <path d="M12 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-              </svg>
-            </div>
-
-            <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Hello, I am</p>
-              <h1 className="head-text">Kevin Ndirangu</h1>
-              <div className="role-text-container">
-                <motion.p
-                  key={currentRoleIndex} // Key ensures re-render on role change
-                  initial={{ opacity: 0, y: 20 }} // Start off-screen
-                  animate={{ opacity: 1, y: 0 }} // Slide up and fade in
-                  exit={{ opacity: 0, y: -20 }} // Slide up and fade out
-                  transition={{ duration: 0.5 }}
-                  className="role-text"
-                >
-                  {roles[currentRoleIndex]}
-                </motion.p>
+      <div className="header-content">
+        {/* Main Content Section */}
+        <motion.div 
+          className="header-main"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="header-text">
+            <motion.div 
+              className="greeting"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <span className="emoji">👋</span>
+              <span className="text">Hi, I'm</span>
+            </motion.div>
+            
+            <motion.h1 
+              className="name"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, type: "spring", stiffness: 150 }}
+            >
+              Kevin Ndirangu
+            </motion.h1>
+            
+            <motion.div
+              className="role-container"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="role-badge">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentRoleIndex}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="role-text"
+                  >
+                    {roles[currentRoleIndex]}
+                  </motion.span>
+                </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
+
+            <motion.p 
+              className="description"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              Crafting elegant web solutions with a blend of creativity and technology. 
+              Building experiences that bridge the gap between humans and systems.
+            </motion.p>
           </div>
-        </div>
-      </motion.div>
 
-      {/* Profile Image Section */}
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__header-img"
-      >
-        <img src={Images.profil} alt="profile_bg" className="profile-image" />
-      </motion.div>
-
-      {/* Circles Section */}
-      <motion.div
-        variants={{
-          whileInView: {
-            scale: [0, 1],
-            opacity: [0, 1],
-            transition: { duration: 1, ease: 'easeInOut' },
-          },
-        }}
-        whileInView="whileInView"
-        className="app__header-circles"
-      >
-        {[Images.golang, Images.sass, Images.javascript, Images.react, Images.html, Images.git].map((circle, index) => (
-          <motion.div
-            className="circle-cmp app__flex"
-            key={`circle-${index}`}
-            whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+          {/* Profile Image with Floating Animation */}
+          <motion.div 
+            className="profile-container"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
           >
-            <img src={circle} alt="technology" />
+            <div className="profile-frame">
+              <img 
+                src={Images.profil} 
+                alt="Kevin Ndirangu" 
+                className="profile-image"
+              />
+              <div className="profile-glow"></div>
+              <div className="profile-border"></div>
+            </div>
           </motion.div>
-        ))}
-      </motion.div>
+        </motion.div>
+
+        {/* Tech Icons Section */}
+        <motion.div 
+          className="tech-icons"
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1.1 }}
+        >
+          {[
+            { icon: Images.react, name: "React" },
+            { icon: Images.golang, name: "Go" },
+            { icon: Images.javascript, name: "JavaScript" },
+            { icon: Images.html, name: "HTML" },
+            { icon: Images.sass, name: "Sass" },
+            { icon: Images.git, name: "Git" }
+          ].map((tech, index) => (
+            <motion.div 
+              key={tech.name}
+              className="tech-item"
+              whileHover={{ 
+                scale: 1.2,
+                rotate: 10,
+                transition: { duration: 0.2 }
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 + (index * 0.1) }}
+            >
+              <div className="tech-icon">
+                <img src={tech.icon} alt={tech.name} />
+              </div>
+              <span className="tech-name">{tech.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          className="scroll-indicator"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <span>Scroll to explore</span>
+          <motion.div 
+            className="arrow"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          ></motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
 
-export default AppWrap(Header, 'home');
+export default Header;

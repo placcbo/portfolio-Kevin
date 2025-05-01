@@ -1,229 +1,302 @@
-/* General Reset */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif; /* Modern font */
+// EclipseHeader.scss (Updated to match your index.css)
+
+.eclipse-header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4rem 0;
+  font-family: var(--font-base);
 }
 
-/* Header Container */
-.app__header {
-  flex: 1;
-  width: 100%;
-  height: auto; /* Allow height to adjust dynamically */
-  display: flex;
-  flex-direction: row;
-  padding: 6rem 2rem 2rem;
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  
+  .gradient-orb {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--secondary-color), 0.15) 0%, transparent 70%);
+    filter: blur(150px);
+    top: -200px;
+    right: -200px;
+    
+    &.small {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(var(--secondary-color), 0.08) 0%, transparent 70%);
+      top: 60%;
+      left: -100px;
+    }
+  }
+  
+  .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+  }
+}
+
+.header-content {
   position: relative;
   z-index: 1;
-
-  @media screen and (max-width: 1200px) {
-    flex-direction: column; /* Stack content vertically */
-    padding: 4rem 1rem 2rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    padding: 3rem 1rem 1rem; /* Reduce padding for tiny devices */
-  }
-}
-
-/* Header Info Section */
-.app__header-info {
-  flex: 0.65;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0 2rem;
-
-  @media screen and (max-width: 1200px) {
-    width: 100%;
-    margin: 0;
-    align-items: center;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 450px) {
-    margin: 0;
-    padding: 0;
-  }
+  align-items: center;
 }
 
-/* Badge Section */
-.app__header-badge {
+.header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
- 
-
-  .badge-cmp {
-    padding: 1.5rem 2rem;
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
-    width:400px;
-
-    @media screen and (max-width: 450px) {
-      padding: 1rem; /* Reduce padding for tiny devices */
-    }
-
-    
-
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      
-
-      .p-text {
-        font-size: 1.3rem;
-        color: #000000;
-        
-        font-weight: 600;
-    
-
-        @media screen and (max-width: 450px) {
-          font-size: 0.9rem; /* Smaller text size */
-        }
-      }
-
-      .head-text {
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(90deg, #4361ee, #4cc9f0);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-
-        @media screen and (max-width: 450px) {
-          font-size: 1.75rem; /* Smaller heading size */
-        }
-      }
-    }
-  }
-
-  .tag-cmp {
-    margin-top: 2rem;
-
-    p {
-      font-size: 1.2rem;
-
-      @media screen and (max-width: 450px) {
-        font-size: 0.9rem; /* Smaller tag text size */
-      }
-    }
+  max-width: 1000px;
+  margin-bottom: 4rem;
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 3rem;
   }
 }
 
-/* Role Text Styling */
-.role-text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem; /* Space between roles */
-
-  .role-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000000;
-    white-space: nowrap; /* Prevent wrapping */
-
-    @media screen and (max-width: 450px) {
-      font-size: 1.2rem; /* Smaller font size for tiny devices */
-    }
-  }
-}
-
-/* Profile Image Section */
-.app__header-img {
+.header-text {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
- 
-  margin-right: 80px;
-
-
-  img {
-    max-width: 350px;
-    border-radius: 10px;
-   
-
-    @media screen and (max-width: 700px) {
-      display: none; /* Hide profile image on small devices */
+  
+  @media (max-width: 900px) {
+    margin-bottom: 2rem;
+  }
+  
+  .greeting {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: rgba(var(--primary-color), 0.6);
+    
+    .emoji {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #a0a0c5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+  
+  .role-container {
+    margin-bottom: 2rem;
+    
+    .role-badge {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      background: rgba(var(--secondary-color), 0.1);
+      border: 1px solid rgba(var(--secondary-color), 0.3);
+      backdrop-filter: blur(5px);
+      
+      .role-text {
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+      }
+    }
+  }
+  
+  .description {
+    max-width: 500px;
+    font-size: 1.1rem;
+    color: rgba(var(--primary-color), 0.7);
+    line-height: 1.6;
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
     }
   }
 }
 
-/* Circles Section */
-.app__header-circles {
-  flex: 0.75;
+.profile-container {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-
-
-  @media screen and (max-width: 1200px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+  justify-content: flex-end;
+  
+  @media (max-width: 900px) {
     justify-content: center;
-    margin-top: 2rem;
   }
-
-  @media screen and (max-width: 450px) {
-    gap: 1rem; /* Reduce spacing between circles */
-  }
-
-  div {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-
-    @media screen and (max-width: 450px) {
-      width: 60px;
-      height: 60px; /* Smaller circles for tiny devices */
+  
+  .profile-frame {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(var(--secondary-color), 0.2);
+    
+    @media (max-width: 768px) {
+      width: 250px;
+      height: 250px;
     }
-
-    img {
-      width: 60%;
-      height: 60%;
-
-      @media screen and (max-width: 450px) {
-        width: 50%;
-        height: 50%; /* Smaller icons inside circles */
+    
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: transform 0.5s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+    
+    .profile-glow {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(var(--secondary-color), 0.2) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    
+    .profile-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid rgba(var(--primary-color), 0.1);
+      border-radius: 20px;
+      z-index: 1;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        padding: 2px;
+        background: linear-gradient(45deg, var(--secondary-color), #ff3d8a);
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
       }
     }
   }
 }
 
-/* Wave Hand Animation */
-.wave-hand {
+.tech-icons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  align-items: center;
-
-  svg {
-    width: 40px;
-    height: 40px;
-    animation: wave 1.5s infinite ease-in-out;
+  margin-bottom: 3rem;
+  z-index: 1;
+  
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    .tech-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      background: rgba(var(--primary-color), 0.05);
+      border: 1px solid rgba(var(--primary-color), 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      
+      img {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+        filter: brightness(0.8) saturate(1.2);
+      }
+    }
+    
+    .tech-name {
+      font-size: 0.8rem;
+      color: rgba(var(--primary-color), 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+    
+    &:hover {
+      .tech-icon {
+        background: rgba(var(--secondary-color), 0.2);
+        border-color: rgba(var(--secondary-color), 0.5);
+        
+        img {
+          filter: brightness(1) saturate(1.5);
+        }
+      }
+      
+      .tech-name {
+        color: var(--white-color);
+      }
+    }
   }
+}
 
-  @keyframes wave {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(20deg);
-    }
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(var(--primary-color), 0.6);
+  
+  .arrow {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid rgba(var(--primary-color), 0.6);
+    border-bottom: 2px solid rgba(var(--primary-color), 0.6);
+    transform: rotate(45deg);
   }
 }
