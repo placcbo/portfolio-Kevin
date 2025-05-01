@@ -12,8 +12,11 @@ const Navbar = () => {
       <div className='app__navbar-logo'>
        <a href='home'>
        <h1 className="cool-logo" >
-  <span className="logo-k">K.</span>
-  <span className="logo-ndirangu">Ndirangu</span>
+        <a id = "home">
+        <span className="logo-k">K.</span>
+        <span className="logo-ndirangu">Ndirangu</span>
+        </a>
+
 </h1>
 
 
