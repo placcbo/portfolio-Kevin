@@ -44,9 +44,11 @@ import CICD from '../assets/pngwing.com.png'
 import frontend from '../assets/frontend.png'
 import mongodb from '../assets/mongodb.png'
 import front from '../assets/front.png'
+import dine from '../assets/dine.png'
 
 
 export default {
+  dine,
   front,
   mongodb,
   frontend,

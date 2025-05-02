@@ -10,20 +10,20 @@ const Work = () => {
 
   const works = [
     {
-      title: 'Candidly',
-      category: 'Web App',
-      imgUrl: Images.candidly,
-      link: 'https://candidly-eta.vercel.app/',
-      description: 'A sleek resume builder that helps users create professional resumes effortlessly.',
-      highlight: 'Modern UI • Instant Download • Template-Based'
+      "title": "Candidly",
+      "category": "Web App",
+      "imgUrl": Images.candidly,
+      "link": "https://candidly-eta.vercel.app/",
+      "description": "Candidly is a sleek and intuitive resume builder designed to help users create polished, professional resumes in minutes — without any design experience. With a variety of customizable templates, real-time editing, and instant download options, Candidly streamlines the entire resume creation process. Whether you're a recent graduate or a seasoned professional, this tool empowers you to showcase your skills and experiences with ease and confidence.",
+      "highlight": "Modern & User-Friendly Interface • Instant Resume Download • Customizable Templates"
     },
     {
-      title: 'Portfolio Dashboard',
-      category: 'Web App',
-      imgUrl: Images.project1,
-      link: '#',
-      description: 'Personal developer dashboard built with React, Framer Motion, and glassmorphism design principles.',
-      highlight: 'Interactive • Animated • Responsive'
+      title: 'Byte & Dine',
+      category: 'Restaurant Website',
+      imgUrl: Images.dine,
+      link: "https://bytedine.vercel.app/",
+      description: 'Official website for Byte & Dine restaurant, built with React and SCSS for a modern, high-performance dining experience. Features include a dynamic menu showcase, seamless online reservations, responsive layouts for all devices, and accessibility-focused design. The site leverages React hooks for interactivity and SCSS for scalable styling, ensuring fast load times and intuitive navigation.',
+      highlight: 'React • SCSS • Responsive Design • Performance-Optimized • Real-Time Reservations'
     },
     {
       title: 'AI Chatbot',
