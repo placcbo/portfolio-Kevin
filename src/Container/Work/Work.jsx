@@ -26,10 +26,10 @@ const Work = () => {
       highlight: 'React • SCSS • Responsive Design • Performance-Optimized • Real-Time Reservations'
     },
     {
-      title: 'AI Chatbot',
+      title: 'Sleek Phone',
       category: 'Web App',
       imgUrl: Images.project2,
-      link: '#',
+      link: 'https://sleek-phone-market.vercel.app/',
       description: 'AI-powered chatbot with natural language processing and real-time interactions.',
       highlight: 'LLM Integration • Real-Time • Scalable'
     },
