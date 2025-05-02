@@ -1,5 +1,3 @@
-// EclipseHeader.scss (Updated to match your index.css)
-
 .eclipse-header {
   position: relative;
   min-height: 100vh;
@@ -7,50 +5,24 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 4rem 0;
+  padding: 5.5rem 0;
   font-family: var(--font-base);
-}
-
-.header-background {
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
   
-  .gradient-orb {
+  // Black background
+  background-color: #000;
 
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--secondary-color), 0.15) 0%, transparent 20%);
-    filter: blur(150px);
-    top: -200px;
-    right: -200px;
-    
-    &.small {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(var(--secondary-color), 0.08) 0%, transparent 10%);
-      top: 60%;
-      left: -100px;
-    }
-  }
-  
-  .grid-overlay {
+  // Margin from top to avoid overlapping with navbar
+  margin-top: 80px; // Adjust this based on your actual navbar height
+
+  // Optional subtle radial glow effect for depth (optional)
+  .header-background {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-      linear-gradient(to right, rgba(242, 53, 53, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: 1;
+    z-index: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03), #000 70%);
   }
 }
 
@@ -73,7 +45,7 @@
   width: 100%;
   max-width: 1000px;
   margin-bottom: 4rem;
-  
+
   @media (max-width: 900px) {
     flex-direction: column;
     text-align: center;
@@ -86,11 +58,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   @media (max-width: 900px) {
     margin-bottom: 2rem;
   }
-  
+
   .greeting {
     display: flex;
     align-items: center;
@@ -98,12 +70,12 @@
     margin-bottom: 1rem;
     font-size: 1.2rem;
     color: rgba(var(--primary-color), 0.6);
-    
+
     .emoji {
       font-size: 1.4rem;
     }
   }
-  
+
   .name {
     font-size: 3rem;
     font-weight: 700;
@@ -111,15 +83,15 @@
     background: linear-gradient(90deg, var(--primary-color) 0%, #a0a0c5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
+
     @media (max-width: 768px) {
       font-size: 2.2rem;
     }
   }
-  
+
   .role-container {
     margin-bottom: 2rem;
-    
+
     .role-badge {
       display: inline-block;
       padding: 0.5rem 1.2rem;
@@ -127,7 +99,7 @@
       background: rgba(var(--secondary-color), 0.1);
       border: 1px solid rgba(var(--secondary-color), 0.3);
       backdrop-filter: blur(5px);
-      
+
       .role-text {
         font-size: 1.1rem;
         color: var(--secondary-color);
@@ -138,13 +110,13 @@
       }
     }
   }
-  
+
   .description {
     max-width: 500px;
     font-size: 1.1rem;
     color: rgba(var(--primary-color), 0.7);
     line-height: 1.6;
-    
+
     @media (max-width: 768px) {
       font-size: 1rem;
     }
@@ -155,11 +127,11 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  
+
   @media (max-width: 900px) {
     justify-content: center;
   }
-  
+
   .profile-frame {
     position: relative;
     width: 300px;
@@ -167,24 +139,24 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(var(--secondary-color), 0.2);
-    
+
     @media (max-width: 768px) {
       width: 250px;
       height: 250px;
     }
-    
+
     .profile-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
       transition: transform 0.5s ease;
-      
+
       &:hover {
         transform: scale(1.05);
       }
     }
-    
+
     .profile-glow {
       position: absolute;
       top: -50%;
@@ -195,7 +167,7 @@
       animation: float 6s ease-in-out infinite;
       z-index: 0;
     }
-    
+
     .profile-border {
       position: absolute;
       top: 0;
@@ -205,7 +177,7 @@
       border: 1px solid rgba(var(--primary-color), 0.1);
       border-radius: 20px;
       z-index: 1;
-      
+
       &::after {
         content: '';
         position: absolute;
@@ -233,7 +205,7 @@
   justify-content: center;
   margin-bottom: 3rem;
   z-index: 1;
-  
+
   .tech-item {
     display: flex;
     flex-direction: column;
@@ -241,7 +213,7 @@
     gap: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     .tech-icon {
       width: 50px;
       height: 50px;
@@ -252,7 +224,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      
+
       img {
         width: 60%;
         height: 60%;
@@ -260,7 +232,7 @@
         filter: brightness(0.8) saturate(1.2);
       }
     }
-    
+
     .tech-name {
       font-size: 0.8rem;
       color: rgba(var(--primary-color), 0.6);
@@ -268,17 +240,17 @@
       letter-spacing: 1px;
       transition: color 0.3s ease;
     }
-    
+
     &:hover {
       .tech-icon {
         background: rgba(var(--secondary-color), 0.2);
         border-color: rgba(var(--secondary-color), 0.5);
-        
+
         img {
           filter: brightness(1) saturate(1.5);
         }
       }
-      
+
       .tech-name {
         color: var(--white-color);
       }
@@ -293,12 +265,27 @@
   gap: 0.5rem;
   font-size: 0.9rem;
   color: rgba(var(--primary-color), 0.6);
-  
+
   .arrow {
     width: 12px;
     height: 12px;
     border-right: 2px solid rgba(var(--primary-color), 0.6);
     border-bottom: 2px solid rgba(var(--primary-color), 0.6);
     transform: rotate(45deg);
+  }
+}
+// Update media query to apply from 769px up
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+    gap: 2.5rem;
+
+    @media (min-width: 1200px) {
+      gap: 3rem;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 4rem;
+    }
   }
 }
