@@ -2,8 +2,9 @@
   padding: var(--spacing-5) var(--spacing-3);
   position: relative;
   z-index: 1;
+
   
-  /* Developer Bio Section */
+  
   .developer-bio {
     font-family: 'DM Sans', sans-serif;
     max-width: 700px;
@@ -12,6 +13,7 @@
     color: var(--white-color); // Improved contrast
     line-height: 1.7;
     position: relative;
+
     z-index: 2;
    
     
@@ -56,6 +58,7 @@
     margin-bottom: var(--spacing-5);
     z-index: 2;
     position: relative;
+
     
     h2 {
       font-size: 2.5rem;
