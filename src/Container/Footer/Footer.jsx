@@ -199,7 +199,7 @@ const Footer = () => {
           className="social-links"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/placcbo"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
@@ -217,6 +217,8 @@ const Footer = () => {
           <a
             href="mailto:placbo2@gmail.com"
             className="social-link"
+
+          
           >
             Email
           </a>
