@@ -1,8 +1,11 @@
 .skills-section {
-  padding: var(--spacing-5) var(--spacing-3);
+  padding: var(--spacing-6) var(--spacing-3) var(--spacing-6) var(--spacing-3);
+ 
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* Terminal-style heading */
@@ -30,7 +33,7 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-    
+
     &:hover::after {
       transform: scaleX(1);
     }
@@ -75,10 +78,14 @@
 /* Skills Grid */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--spacing-4);
   position: relative;
   z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Skill Card */
@@ -97,14 +104,12 @@
     box-shadow: 0 0 25px rgba(var(--secondary-color-rgb), 0.2);
   }
 
-  /* Header */
   .skill-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    position: relative;
-    
+
     .skill-icon {
       width: 50px;
       height: 50px;
@@ -114,13 +119,13 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      
+
       img {
         width: 60%;
         height: 60%;
         object-fit: contain;
       }
-      
+
       &:hover {
         border-color: var(--accent-color);
         box-shadow: 0 0 10px var(--accent-color);
@@ -131,8 +136,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 1.2rem;
       color: var(--white-color);
-      position: relative;
-      
+
       .skill-category {
         display: block;
         font-size: 0.85rem;
@@ -142,17 +146,16 @@
     }
   }
 
-  /* Level Indicator */
   .level-indicator {
     margin-bottom: 1.2rem;
-    
+
     .level-bar {
       width: 100%;
       height: 6px;
       background: rgba(var(--secondary-color-rgb), 0.1);
       border-radius: var(--radius-sm);
       overflow: hidden;
-      
+
       .level-fill {
         height: 100%;
         border-radius: var(--radius-sm);
@@ -161,23 +164,22 @@
     }
   }
 
-  /* Experience Info */
   .experience-details {
     margin-bottom: 1rem;
     font-family: 'Courier New', monospace;
-    
+
     .experience-role {
       color: var(--secondary-color);
       font-size: 0.95rem;
       margin-bottom: 0.3rem;
     }
-    
+
     .experience-company {
       color: var(--gray-color);
       font-size: 0.85rem;
       margin-bottom: 0.5rem;
     }
-    
+
     .achievements {
       margin-top: 0.5rem;
       color: var(--gray-color);
@@ -187,7 +189,6 @@
     }
   }
 
-  /* Description */
   .skill-description {
     font-size: 0.9rem;
     color: var(--gray-color);
@@ -197,7 +198,6 @@
     align-items: flex-end;
   }
 
-  /* Used In Projects */
   .used-in {
     font-family: 'Courier New', monospace;
     margin-top: 1rem;
@@ -205,13 +205,12 @@
     color: var(--gray-color);
   }
 
-  /* Certifications */
   .certifications {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
-    
+
     .cert-badge {
       font-family: 'Courier New', monospace;
       font-size: 0.75rem;
@@ -220,7 +219,7 @@
       border-radius: var(--radius-sm);
       border: 1px solid rgba(var(--secondary-color-rgb), 0.2);
       transition: all 0.3s ease;
-      
+
       &:hover {
         background: var(--secondary-color);
         color: var(--white-color);
@@ -228,7 +227,6 @@
     }
   }
 
-  /* Learning Journey */
   .learning-journey {
     margin-top: 1rem;
     font-family: 'Courier New', monospace;
@@ -240,24 +238,19 @@
 /* Radar Chart Customization */
 .recharts-surface {
   background: transparent;
-  .recharts-polar-grid {
-    .recharts-polar-grid__polygon {
-      stroke: var(--border-color);
-    }
+
+  .recharts-polar-grid .recharts-polar-grid__polygon {
+    stroke: var(--border-color);
   }
-  
-  .recharts-polar-angle-axis {
-    .recharts-polar-angle-axis-tick {
-      fill: var(--white-color);
-    }
+
+  .recharts-polar-angle-axis .recharts-polar-angle-axis-tick {
+    fill: var(--white-color);
   }
-  
-  .recharts-polar-radius-axis {
-    .recharts-polar-radius-axis-tick {
-      fill: transparent;
-    }
+
+  .recharts-polar-radius-axis .recharts-polar-radius-axis-tick {
+    fill: transparent;
   }
-  
+
   .recharts-radar {
     fill: var(--secondary-color);
     fill-opacity: 0.2;
@@ -294,7 +287,6 @@
     box-shadow: 0 0 20px rgba(var(--secondary-color-rgb), 0.3);
   }
 
-  /* Button Glow */
   &::after {
     content: '';
     position: absolute;
@@ -312,18 +304,15 @@
   }
 }
 
-.cv-label {
+.cv-label, .cv-icon {
   position: relative;
   z-index: 2;
 }
 
 .cv-icon {
   font-size: 1.1rem;
-  position: relative;
-  z-index: 2;
 }
 
-/* Developer Motto */
 .developer-motto {
   text-align: center;
   font-family: 'Courier New', monospace;
@@ -346,19 +335,30 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .code-terminal-text {
+    font-size: 2rem;
+  }
+
   .radar-chart {
     width: 100%;
     max-width: 500px;
     margin: 2rem auto;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
-  
+
   .skill-card {
     padding: 1.2rem;
   }

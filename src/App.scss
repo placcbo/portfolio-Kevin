@@ -123,20 +123,29 @@ input[type="submit"] {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-3);
+}
 
-  /* Fluid scaling for ultra-wide */
-  @media (min-width: 1440px) {
-    max-width: 1400px;
-    padding: 0 calc(var(--spacing-3) * 1.5);
-  }
-
-  @media (min-width: 1920px) {
-    max-width: 1600px;
-    padding: 0 calc(var(--spacing-3) * 2);
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-4);
   }
 }
 
-/* Clamp for Fluid Layouts (Optional) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+    padding: 0 var(--spacing-5);
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 var(--spacing-6);
+  }
+}
+
+/* Fluid Container */
 .fluid-container {
   max-width: clamp(320px, 80vw, 1600px);
   margin: 0 auto;
@@ -147,10 +156,72 @@ input[type="submit"] {
 .section-padding {
   padding-top: var(--spacing-5);
   padding-bottom: var(--spacing-5);
+}
 
-  @media (min-width: 1440px) {
+@media (min-width: 1440px) {
+  .section-padding {
     padding-top: var(--spacing-6);
     padding-bottom: var(--spacing-6);
+  }
+}
+
+/* Grid System */
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+.skills-grid,
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 768px) {
+  .skills-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .skills-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+/* Hero/Section Max Width Fix */
+.hero-section,
+.header-section,
+.app__about-section,
+.skills-section,
+.terminal-contact,
+.code-terminal-text {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1440px) {
+  .hero-section,
+  .header-section,
+  .app__about-section,
+  .skills-section,
+  .terminal-contact,
+  .code-terminal-text {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-section,
+  .header-section,
+  .app__about-section,
+  .skills-section,
+  .terminal-contact,
+  .code-terminal-text {
+    max-width: 1600px;
   }
 }
 
@@ -173,110 +244,27 @@ input[type="submit"] {
 
 .text-xl {
   font-size: 1.25rem;
-  @media (min-width: 1440px) {
-    font-size: 1.375rem;
-  }
 }
 
 .text-2xl {
   font-size: 1.5rem;
-  @media (min-width: 1440px) {
-    font-size: 1.75rem;
-  }
 }
 
 .text-3xl {
   font-size: 1.875rem;
-  @media (min-width: 1440px) {
-    font-size: 2.25rem;
-  }
 }
 
 .text-4xl {
   font-size: 2.25rem;
-  @media (min-width: 1440px) {
-    font-size: 2.5rem;
-  }
 }
 
 .text-5xl {
   font-size: 3rem;
-  @media (min-width: 1440px) {
+}
+
+@media (min-width: 1440px) {
+  .text-5xl {
     font-size: 3.5rem;
-  }
-}
-
-/* Glassmorphism Cards */
-.glassmorphism {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-md);
-  transition: var(--transition-base);
-  
-  @media (min-width: 1440px) {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-}
-
-/* Grid System */
-.grid-center {
-  display: grid;
-  place-items: center;
-
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-6);
-  }
-}
-
-.skills-grid,
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-4);
-
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-}
-
-/* Improved Glass Gradient */
-.glass-gradient {
-  background: linear-gradient(145deg, var(--secondary-color), var(--accent-color));
-  
-  @media (min-width: 1440px) {
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color), #00aaff);
-  }
-}
-
-/* Responsive Images */
-.responsive-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: 0 auto;
-  
-  @media (min-width: 1440px) {
-    max-width: 800px;
-  }
-}
-
-/* Hero/Section Max Width Fix */
-.hero-section,
-.header-section,
-.app__about-section,
-.skills-section,
-.terminal-contact,
-.code-terminal-text {
-  @media (min-width: 1440px) {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  
-  @media (min-width: 1920px) {
-    max-width: 1600px;
   }
 }
 
@@ -289,19 +277,13 @@ input[type="submit"] {
   color: var(--gray-color);
   text-align: center;
   margin: var(--spacing-4) auto;
-  
-  @media (min-width: 1440px) {
-    font-size: 1.1rem;
-  }
 }
 
-/* Responsive Shadows */
-.shadow-hover {
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-base);
-  
-  @media (min-width: 1440px) {
-    box-shadow: var(--shadow-lg);
+@media (min-width: 1440px) {
+  .developer-motto,
+  .developer-quote,
+  .terminal-title {
+    font-size: 1.1rem;
   }
 }
 
@@ -329,11 +311,6 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.grid-center {
-  display: grid;
-  place-items: center;
 }
 
 .relative {
@@ -395,10 +372,12 @@ input[type="submit"] {
 
   .terminal-code {
     font-size: 2.5rem;
-    
-    @media (min-width: 1920px) {
-      font-size: 3rem;
-    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .terminal-code {
+    font-size: 3rem;
   }
 }
 
@@ -413,34 +392,20 @@ input[type="submit"] {
 .code-terminal-text {
   font-family: 'Courier New', monospace;
   font-size: 2.5rem;
-  
-  @media (min-width: 1440px) {
+}
+
+@media (min-width: 1440px) {
+  .code-line,
+  .code-tag,
+  .code-terminal-text {
     font-size: 2.75rem;
   }
-  
-  @media (min-width: 1920px) {
+}
+
+@media (min-width: 1920px) {
+  .code-line,
+  .code-tag,
+  .code-terminal-text {
     font-size: 3rem;
-  }
-}
-
-/* Terminal Glow Animation Fix */
-@keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-/* Glassmorphism Glow Fix */
-.glassmorphism:hover {
-  box-shadow: 0 0 25px rgba(var(--secondary-color-rgb), 0.2);
-}
-
-/* Prevent Over-Stretching */
-.full-width {
-  width: 100%;
-  max-width: 100%;
-  
-  @media (min-width: 1440px) {
-    max-width: 1600px;
-    margin: 0 auto;
   }
 }

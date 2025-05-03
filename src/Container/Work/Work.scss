@@ -1,8 +1,10 @@
 .portfolio-section {
-  padding: var(--spacing-5) var(--spacing-3);
+  padding: var(--spacing-6) var(--spacing-3) var(--spacing-6) var(--spacing-3);
   position: relative;
   z-index: 1;
   min-height: 100vh;
+  overflow-x: hidden; // Prevent horizontal scroll
+  overflow-y: hidden;
 }
 
 /* Terminal-style heading */
@@ -12,12 +14,14 @@
   line-height: 1.4;
   text-align: center;
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   position: relative;
+
 
   .code-line {
     color: var(--secondary-color);
     
+
     &::after {
       content: '';
       position: absolute;
@@ -30,7 +34,7 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-    
+
     &:hover::after {
       transform: scaleX(1);
     }
@@ -40,6 +44,7 @@
     color: var(--accent-color);
     font-size: 0.9em;
     margin-left: 0.5em;
+
   }
 
   .blinking-cursor {
@@ -77,7 +82,8 @@
     position: relative;
     overflow: hidden;
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       background: var(--secondary-color);
       color: var(--white-color);
       transform: translateY(-2px);
@@ -94,7 +100,8 @@
       transition: width 0.3s ease;
     }
 
-    &:hover::after, &.active::after {
+    &:hover::after,
+    &.active::after {
       width: 100%;
     }
   }
@@ -103,10 +110,15 @@
 /* Portfolio Grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--spacing-4);
   position: relative;
   z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+
 }
 
 /* Project Cards */
@@ -121,7 +133,6 @@
   background: var(--glass-bg);
   box-shadow: 0 0 20px rgba(var(--secondary-color-rgb), 0.1);
 
-  /* Image Container */
   .portfolio-image {
     position: relative;
     height: 180px;
@@ -175,7 +186,6 @@
     transform: scale(1.1);
   }
 
-  /* Content Area */
   .portfolio-content {
     padding: 1.5rem;
     flex-grow: 1;
@@ -188,7 +198,7 @@
       margin-bottom: 0.8rem;
       font-size: 1.2rem;
       position: relative;
-      
+
       &::before {
         content: '//';
         position: absolute;
@@ -253,5 +263,10 @@
 
   .portfolio-card .portfolio-image {
     height: 160px;
+  }
+
+  .portfolio-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
