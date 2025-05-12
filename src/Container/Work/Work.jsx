@@ -25,14 +25,14 @@ const Work = () => {
       description: 'Official website for Byte & Dine restaurant, built with React and SCSS for a modern, high-performance dining experience. Features include a dynamic menu showcase, seamless online reservations, responsive layouts for all devices, and accessibility-focused design. The site leverages React hooks for interactivity and SCSS for scalable styling, ensuring fast load times and intuitive navigation.',
       highlight: 'React • SCSS • Responsive Design • Performance-Optimized • Real-Time Reservations'
     },
-    {
-      title: 'AI Chatbot',
-      category: 'Web App',
-      imgUrl: Images.project2,
-      link: '#',
-      description: 'AI-powered chatbot with natural language processing and real-time interactions.',
-      highlight: 'LLM Integration • Real-Time • Scalable'
-    },
+  {
+  "title": "AirSwap",
+  "category": "Web App",
+  "imgUrl": Images.airswap,
+  "link": "https://airswap-ivory.vercel.app/",
+  "description": "AI-powered platform facilitating seamless buying and selling of airtime credits through intuitive chatbot interactions. Utilizes advanced natural language processing for real-time transactions.",
+  "highlight": "AI Chatbot • Real-Time Transactions • Seamless User Experience"
+},
     {
       title: 'Mobile Task Manager',
       category: 'Mobile App',
