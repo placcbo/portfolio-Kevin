@@ -185,7 +185,7 @@ const Footer = () => {
           transition={{ delay: 0.6 }}
           className="cv-download"
         >
-          <a href='/public/kevinndiranguCV.pdf' download className="cv-button">
+          <a href='/kevin Ndirangu -Updated CV (1).pdf' download className="cv-button">
             <span className="cv-label">// Download CV</span>
             <span className="cv-icon">⬇</span>
           </a>
