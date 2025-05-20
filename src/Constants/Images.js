@@ -46,9 +46,11 @@ import mongodb from '../assets/mongodb.png'
 import front from '../assets/front.png'
 import dine from '../assets/dine.png'
 import airswap from '../assets/airswap.png'
+import kevin1 from '../assets/kevin.jpg'
 
 
 export default {
+  kevin1,
   airswap,
   dine,
   front,

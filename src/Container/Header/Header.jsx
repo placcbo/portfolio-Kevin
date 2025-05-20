@@ -105,7 +105,7 @@ const Header = () => {
           >
             <div className="profile-frame">
               <img 
-                src={Images.profil} 
+                src={Images.kevin1} 
                 alt="Kevin Ndirangu" 
                 className="profile-image"
               />
