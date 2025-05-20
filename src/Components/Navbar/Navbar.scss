@@ -19,7 +19,7 @@
 
   .progress-bar {
     height: 3px;
-    background: #00ffcc;
+    background: red;
     width: 0%;
   }
 }
@@ -42,7 +42,7 @@
     .logo-letter {
       font-size: 1.8rem;
       font-weight: bold;
-      color: #00ffcc;
+      color: red;
     }
 
     .logo-name {
@@ -84,11 +84,11 @@
     }
 
     &.active .indicator {
-      background: #00ffcc;
+      background: red;
     }
 
     &.active .text {
-      color: #00ffcc;
+      color: red;
     }
   }
 }
@@ -204,11 +204,11 @@
       }
 
       &.active .mobile-indicator {
-        background: #00ffcc;
+        background: red;
       }
 
       &.active .mobile-text {
-        color: #00ffcc;
+        color: red;
       }
     }
   }
