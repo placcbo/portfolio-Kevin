@@ -7,12 +7,13 @@
   overflow: hidden;
   padding: 5.5rem 0;
   font-family: var(--font-base);
+
   
   // Black background
   background-color: #000;
 
   // Margin from top to avoid overlapping with navbar
-  margin-top: 80px;
+  margin-top: 80px; // Adjust this based on your actual navbar height
 
   // Optional subtle radial glow effect for depth (optional)
   .header-background {
@@ -23,11 +24,6 @@
     bottom: 0;
     z-index: 0;
     background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03), #000 70%);
-  }
-
-  // Reduce padding on smaller screens
-  @media (max-width: 768px) {
-    padding: 2.5rem 0;
   }
 }
 
@@ -279,7 +275,6 @@
     transform: rotate(45deg);
   }
 }
-
 // Update media query to apply from 769px up
 @media (min-width: 769px) {
   .desktop-nav {
@@ -294,4 +289,4 @@
       gap: 4rem;
     }
   }
-}
+}  
