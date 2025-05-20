@@ -16,11 +16,10 @@ const Navbar = () => {
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
       
-      
       sections.forEach(section => {
         const element = document.getElementById(section);
-        if (element && 
-            element.offsetTop <= scrollTop + 100 && 
+        if (element &&
+            element.offsetTop <= scrollTop + 100 &&
             element.offsetTop + element.offsetHeight > scrollTop + 100) {
           setActiveSection(section);
         }
@@ -38,7 +37,6 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Scroll Progress Indicator */}
       <div className="progress-indicator">
         <motion.div 
           className="progress-bar"
@@ -49,7 +47,6 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-content">
-        {/* Logo */}
         <motion.div 
           className="navbar-logo"
           whileHover={{ scale: 1.1 }}
@@ -61,7 +58,6 @@ const Navbar = () => {
           </a>
         </motion.div>
 
-        {/* Desktop Navigation */}
         <ul className="desktop-nav">
           {sections.map((section) => (
             <motion.li
@@ -85,18 +81,16 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="mobile-menu-button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           whileHover={{ rotate: 90 }}
           whileTap={{ scale: 0.9 }}
         >
-          <span className="menu-icon"></span>
+          <span className={`menu-icon ${isMenuOpen ? 'active' : ''}`}></span>
         </motion.button>
       </div>
 
-      {/* Mobile Navigation Panel */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
